@@ -33,6 +33,13 @@ public class Card {
         return rank + " of " + suite.toString();
     }
 
+    /**
+     * Used to set aces to 1
+     */
+    public void setCardValue(int cardValue) {
+        this.cardValue = cardValue;
+    }
+
     public static Suite intToSuite(int num) {
         switch (num) {
             case 0:
