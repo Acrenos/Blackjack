@@ -5,8 +5,7 @@ public class Deck {
     private ArrayList<Card> cards = new ArrayList<>();
 
     public Deck() {
-        initializeNumberCards();
-        initializeFaceCards();
+        shuffleCards();
     }
 
 
@@ -24,6 +23,15 @@ public class Deck {
         }
         initializeNumberCards();
         initializeFaceCards();
+
+        // Shuffles Deck using Fisher-Yates Shuffle
+        for (int i = cards.size() - 1; i >= 0; i--) {
+        int j = (int) (Math.floor(Math.random() * (i + 1)));
+        ArrayList<Card> temp = new ArrayList<>();
+        temp.add(cards.get(i));
+        cards.set(i, cards.get(j));
+        cards.set(j, temp.getFirst());
+        }
     }
 
 
@@ -38,8 +46,7 @@ public class Deck {
      */
 
     public Card dealCard() {
-        int card = (int)(Math.random() * (double)cards.size());
-        Card dealCard = cards.get(card);
+        Card dealCard = cards.getFirst();
         cards.remove(dealCard);
         return dealCard;
     }
