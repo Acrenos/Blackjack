@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
         Scanner input = new Scanner(System.in);
@@ -31,7 +32,14 @@ public class Main {
             dealer.printFullHand();
 
             System.out.println("--Beginning New Round--");
-            System.out.println("Press Enter To Continue");
+            System.out.println("Press Enter To Continue (Q To Quit)");
+            int key = System.in.read();
+
+            if (key == 81 || key == 113) {
+                gameActive = false;
+            }
+
+
 
             player.hand.clearHand();
             dealer.hand.clearHand();
