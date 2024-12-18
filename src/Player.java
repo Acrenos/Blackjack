@@ -5,12 +5,34 @@ public class Player {
     protected Hand hand;
     protected String name;
 
-    public Player(Hand hand, String name) {
+    private int chipsBalance;
+    private int currentBet;
+
+    private boolean blackjack;
+
+    public Player(Hand hand, String name, int startingChipsBalance) {
         this.hand = hand;
         this.name = name;
+        chipsBalance = startingChipsBalance;
+        blackjack = false;
+    }
+
+    private void preTurn() {
+        System.out.println("Balance: $" + chipsBalance);
+        Scanner input = new Scanner(System.in);
+        boolean properBet = false;
+        while (!properBet) {
+            System.out.println("Enter Bet: ");
+            currentBet = input.nextInt();
+            if (currentBet > 0 && chipsBalance >= currentBet) {
+                chipsBalance -= currentBet;
+                properBet = true;
+            }
+        }
     }
 
     public boolean takeTurn(Deck deck) {
+        preTurn();
         Scanner input = new Scanner(System.in);
         System.out.println("\n--Your Turn--\n");
 
@@ -37,6 +59,9 @@ public class Player {
                 System.out.println("Please Try Again");
             }
         }
+        if (hand.calculateValue() == 21 && hand.getCards().size() == 2) {
+            blackjack = true;
+        }
         return false;
     }
 
@@ -54,6 +79,16 @@ public class Player {
 
     public void addCard(Card card) {
         hand.addCard(card);
+    }
+
+    public void winBet(boolean blackjack) {
+        chipsBalance += blackjack ? (5 * currentBet) / 2 : 2 * currentBet;
+        currentBet = 0;
+        this.blackjack = false;
+    }
+
+    public boolean getBlackjack() {
+        return blackjack;
     }
 
 }

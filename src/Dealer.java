@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Dealer extends Player {
 
     public Dealer(Hand hand, String name) {
-        super(hand, name);
+        super(hand, name, Integer.MAX_VALUE);
     }
 
     @Override
@@ -43,11 +43,32 @@ public class Dealer extends Player {
         pause();
     }
 
+    public void printFullHand() {
+        StringBuilder cards = new StringBuilder();
+        for (int x = 0; x < hand.getCards().size(); x++) {
+            if (x != 0) {
+                cards.append(", ");
+            }
+            cards.append(hand.getCards().get(x).toString());
+        }
+        System.out.println("Dealer Hand: " + cards);
+        System.out.println("Total Value: " + hand.calculateValue());
+        pause();
+    }
+
     public void pause() {
         Scanner input = new Scanner(System.in);
         System.out.println("Hit enter to continue");
         input.nextLine();
     }
 
+    @Override
+    public void winBet(boolean blackjack) {
+        printFullHand();
+    }
 
+    @Override
+    public boolean getBlackjack() {
+        return false;
+    }
 }

@@ -10,7 +10,7 @@ public class Main {
         String playerName = input.nextLine();
         Hand playerHand = new Hand();
         Hand dealerHand = new Hand();
-        Player player = new Player(playerHand, playerName);
+        Player player = new Player(playerHand, playerName, 50);
         Dealer dealer = new Dealer(dealerHand, "Dealer");
         Deck deck = new Deck();
 
@@ -25,6 +25,7 @@ public class Main {
                 System.out.println("It's a Tie!");
             } else {
                 System.out.println(winner.name + " Wins!");
+                winner.winBet(winner.getBlackjack());
             }
 
             System.out.println("Would you like to play again? (y/n)");
