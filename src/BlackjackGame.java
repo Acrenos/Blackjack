@@ -22,10 +22,10 @@ public class BlackjackGame {
 
     public Player playRound() {
         if (player.takeTurn(deck)) {
-            return player;
+            return dealer;
         }
         if (dealer.takeTurn(deck)) {
-            return dealer;
+            return player;
         }
         return determineWinner();
     }

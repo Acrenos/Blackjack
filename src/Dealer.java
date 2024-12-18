@@ -30,13 +30,13 @@ public class Dealer extends Player {
 
     @Override
     public void printHand() {
-        String cards = "";
+        StringBuilder cards = new StringBuilder();
         for (int x = 0; x < hand.getCards().size(); x++) {
             if (x == 0) {
-                cards += "---";
+                cards.append("---");
             } else {
-                cards += ", ";
-                cards += hand.getCards().get(x).toString();
+                cards.append(", ");
+                cards.append(hand.getCards().get(x).toString());
             }
         }
         System.out.println("Dealer Hand: " + cards);

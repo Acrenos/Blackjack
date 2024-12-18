@@ -15,11 +15,12 @@ public class Hand {
             sum += card.getCardValue();
         }
         if (sum > 21) {
+            sum = 0;
             for (Card card : cards) {
                 if (Objects.equals(card.getRank(), "Ace")) {
                     card.setCardValue(1);
-                    sum -= 10;
                 }
+                sum += card.getCardValue();
             }
         }
 

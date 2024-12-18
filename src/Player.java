@@ -41,12 +41,12 @@ public class Player {
     }
 
     public void printHand() {
-        String cards = "";
+        StringBuilder cards = new StringBuilder();
         for (int x = 0; x < hand.getCards().size(); x++) {
             if (x != 0) {
-                cards += ", ";
+                cards.append(", ");
             }
-            cards += hand.getCards().get(x).toString();
+            cards.append(hand.getCards().get(x).toString());
         }
         System.out.println("Your Hand: " + cards);
         System.out.println("Total Value: " + hand.calculateValue());
