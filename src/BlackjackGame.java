@@ -16,6 +16,7 @@ public class BlackjackGame {
         player.addCard(deck.dealCard());
         dealer.addCard(deck.dealCard());
         dealer.addCard(deck.dealCard());
+        player.preBet();
         dealer.printHand();
         player.printHand();
     }

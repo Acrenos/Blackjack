@@ -17,7 +17,7 @@ public class Player {
         blackjack = false;
     }
 
-    private void preTurn() {
+    public void preBet() {
         System.out.println("Balance: $" + chipsBalance);
         Scanner input = new Scanner(System.in);
         boolean properBet = false;
@@ -32,7 +32,6 @@ public class Player {
     }
 
     public boolean takeTurn(Deck deck) {
-        preTurn();
         Scanner input = new Scanner(System.in);
         System.out.println("\n--Your Turn--\n");
 
@@ -40,7 +39,7 @@ public class Player {
 
         boolean complete = false;
         while (!complete) {
-            System.out.println("Choose Action: (1) Stand (2) Hit");
+            System.out.println("Choose Action: (1) Stand (2) Hit" + (chipsBalance >= currentBet && hand.calculateValue() < 21 ? " (3) Double Down" : ""));
             int userInput = input.nextInt();
             if (userInput == 1) {
                 System.out.println("--Turn Over--");
@@ -54,7 +53,18 @@ public class Player {
                     System.out.println("You Busted!");
                     return true;
                 }
-            } else {
+
+            } else if (userInput == 3 && chipsBalance >= currentBet && hand.calculateValue() < 21) {
+                System.out.println("--Doubling Down--");
+                chipsBalance -= currentBet;
+                currentBet *= 2;
+                addCard(deck.dealCard());
+                printHand();
+                if (hand.calculateValue() > 21) {
+                    System.out.println("You Busted!");
+                    return true;
+                }
+            }else {
                 System.out.println("Unexpected Input!");
                 System.out.println("Please Try Again");
             }

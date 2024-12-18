@@ -64,7 +64,6 @@ public class Dealer extends Player {
 
     @Override
     public void winBet(boolean blackjack) {
-        printFullHand();
     }
 
     @Override

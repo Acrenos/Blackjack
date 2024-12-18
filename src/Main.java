@@ -28,10 +28,11 @@ public class Main {
                 winner.winBet(winner.getBlackjack());
             }
 
-            System.out.println("Would you like to play again? (y/n)");
-            if (!input.nextLine().equals("y")) {
-                gameActive = false;
-            }
+            dealer.printFullHand();
+
+            System.out.println("--Beginning New Round--");
+            System.out.println("Press Enter To Continue");
+
             player.hand.clearHand();
             dealer.hand.clearHand();
 
