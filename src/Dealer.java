@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Dealer extends Player {
 
     public Dealer(Hand hand, String name) {
@@ -38,6 +40,13 @@ public class Dealer extends Player {
             }
         }
         System.out.println("Dealer Hand: " + cards);
+        pause();
+    }
+
+    public void pause() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Hit enter to continue");
+        input.nextLine();
     }
 
 
