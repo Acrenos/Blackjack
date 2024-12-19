@@ -75,11 +75,6 @@ Contributions are welcome! Here's how you can contribute:
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## 📬 Contact
 For questions, suggestions, or feedback, feel free to reach out:
 - **Email**: acrenos@acrenstudio.com
