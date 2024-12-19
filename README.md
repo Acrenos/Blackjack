@@ -1,5 +1,3 @@
-Here’s a complete Markdown code for your Blackjack game README. You can copy and paste this into a `README.md` file in your GitHub repository:
-
 ```markdown
 # Blackjack Game 🃏
 
