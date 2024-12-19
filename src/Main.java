@@ -11,7 +11,7 @@ public class Main {
         String playerName = input.nextLine();
         Hand playerHand = new Hand();
         Hand dealerHand = new Hand();
-        Player player = new Player(playerHand, playerName, 50);
+        Player player = new Player(playerHand, playerName, 100);
         Dealer dealer = new Dealer(dealerHand, "Dealer");
         Deck deck = new Deck();
 

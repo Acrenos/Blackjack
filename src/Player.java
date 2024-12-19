@@ -23,7 +23,7 @@ public class Player {
         boolean properBet = false;
         while (!properBet) {
             System.out.println("Enter Bet: ");
-            currentBet = input.nextInt();
+            currentBet = (int) input.nextDouble();
             if (currentBet > 0 && chipsBalance >= currentBet) {
                 chipsBalance -= currentBet;
                 properBet = true;
