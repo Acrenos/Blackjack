@@ -13,7 +13,7 @@ A simple single player blackjack game that runs in the console.
 
 ---
 
-## How to Play
+## Installation
 1. Clone or download this repository
    ```bash
    git clone https://github.com/your-username/blackjack-game.git
