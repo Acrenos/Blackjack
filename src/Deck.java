@@ -32,6 +32,11 @@ public class Deck {
         cards.set(i, cards.get(j));
         cards.set(j, temp.getFirst());
         }
+
+        cards.set(0, new Card(Card.intToSuite(2), "2", 2));
+        cards.set(1, new Card(Card.intToSuite(2), "2", 2));
+        cards.set(2, new Card(Card.intToSuite(2), "2", 2));
+        cards.set(3, new Card(Card.intToSuite(2), "2", 2));
     }
 
 

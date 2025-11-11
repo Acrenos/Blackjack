@@ -32,9 +32,7 @@ public class BlackjackGame {
     }
 
     public Player determineWinner() {
-        if (player.hand.calculateValue() == dealer.hand.calculateValue()) {
-            System.out.println("It's a tie!");
-        }
+        // Does not determine ties because Main.java does so instead
         return player.hand.calculateValue() > dealer.hand.calculateValue() ? player : dealer;
     }
 

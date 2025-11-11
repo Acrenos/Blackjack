@@ -15,6 +15,8 @@ public class Main {
         Dealer dealer = new Dealer(dealerHand, "Dealer");
         Deck deck = new Deck();
 
+        Stats stats = new Stats(playerName);
+
         BlackjackGame blackjackGame = new BlackjackGame(deck, player, dealer);
 
         boolean gameActive = true;
@@ -24,6 +26,7 @@ public class Main {
             Player winner = blackjackGame.playRound();
             if (player.hand.calculateValue() == dealer.hand.calculateValue()) {
                 System.out.println("It's a Tie!");
+                player.tieBet();
             } else {
                 System.out.println(winner.name + " Wins!");
                 winner.winBet(winner.getBlackjack());

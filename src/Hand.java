@@ -35,5 +35,10 @@ public class Hand {
         return cards;
     }
 
+    public boolean canSplit() {
+        return cards.size() == 2 && Objects.equals(cards.getFirst().getRank(), cards.getLast().getRank());
+    }
+
+
 
 }
